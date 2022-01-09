@@ -1,5 +1,7 @@
 const createOrderObject = (deal) => {
-    return {
+    const quantity = (Math.floor(Math.random() * (80)) + 1);
+    const discount = Math.floor(Math.random());
+    const newOrder = {
         cliente: {
             id: deal.org_id.owner_id,
             nome: deal.org_name,
@@ -18,9 +20,9 @@ const createOrderObject = (deal) => {
                 {
                     codigo: deal.org_name + '-' + deal.org_id.owner_id,
                     descricao: deal.org_name,
-                    qtde: (Math.floor(Math.random() * (80)) + 1),
+                    qtde: quantity,
                     vlr_unit: deal.value,
-                    vlr_desconto: Math.floor(Math.random())
+                    vlr_desconto: discount
                 }
             ],
         },
@@ -30,8 +32,23 @@ const createOrderObject = (deal) => {
         obs: deal.org_name,
         obs_internas: deal.owner_name
     }
+
+    return {
+        newOrder: newOrder,
+        totalValue: parseFloat((quantity*deal.value) - (quantity*deal.value*discount))
+    }
 };
 
+const getNewDate = () => {
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const fullDate = `${day}-${month}-${year}`;
+    return fullDate;
+}
+
 module.exports = {
+    getNewDate,
     createOrderObject
 }

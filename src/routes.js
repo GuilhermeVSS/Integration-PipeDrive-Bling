@@ -15,7 +15,7 @@ routes.get('/', (request, response) => {
 });
 
 routes.get('/api/sync-deals', dealController.syncDeals);
-routes.get('/api/testeprofit', dealController.testeMongo);
+routes.get('/api/profits', dealController.getProfit);
 
 
 module.exports = routes;
