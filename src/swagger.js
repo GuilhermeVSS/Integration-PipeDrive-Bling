@@ -17,6 +17,6 @@ const options = {
 };
 
 swagger(path, routes, options)
-    .then(() =>{
+    .then(() => {
         require('./server.js');
     });
