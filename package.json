@@ -1,0 +1,22 @@
+{
+  "name": "toLinkApi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GuilhermeVSS/toLinkApi.git",
+  "author": "Guilherme Ventura <gs@inicie.digital>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "swagger-autogen": "node swagger.js"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "swagger-autogen": "^2.18.5",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
