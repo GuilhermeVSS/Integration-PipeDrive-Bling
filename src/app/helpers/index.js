@@ -1,3 +1,9 @@
+/**
+* Method to create a new Order object based on a deal
+*
+* @param deal - deal object become from pipeDrive
+* @return {Object<{newOrder: {Object}, totalValue: totalCost}>}
+*/
 const createOrderObject = (deal) => {
     const quantity = (Math.floor(Math.random() * (80)) + 1);
     const discount = Math.floor(Math.random());
@@ -35,10 +41,15 @@ const createOrderObject = (deal) => {
 
     return {
         newOrder: newOrder,
-        totalValue: parseFloat((quantity*deal.value) - (quantity*deal.value*discount))
+        totalValue: parseFloat((quantity * deal.value) - (quantity * deal.value * discount))
     }
 };
 
+/**
+* Method to create a compatible date dd-mm-yyyy based on current date
+*
+* @return {String<{fullDate}>}
+*/
 const getNewDate = () => {
     const date = new Date();
     const day = String(date.getDate()).padStart(2, '0');

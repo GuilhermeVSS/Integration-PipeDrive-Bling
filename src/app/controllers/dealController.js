@@ -5,6 +5,14 @@ const { Deal } = require('../models/dealModel');
 const { Profit } = require('../models/profitModel');
 
 class dealController {
+    
+    /**
+     * Method to sync Deals Won into Bling Order
+     *
+     * @param request - object request from requisition
+     * @param response - object response from requisition
+     * @return {Promise<{statusCode: 201, message: "Deals have been successfully synced"} || {statusCode: 500, message: "Something went wrong"}>}
+     */
     async syncDeals(request, response) {
         try {
             const currentDate = helper.getNewDate();
@@ -43,6 +51,13 @@ class dealController {
         }
     }
 
+    /**
+     * Method to list all profits on day that had been sync
+     *
+     * @param request - object request from requisition
+     * @param response - object response from requisition
+     * @return {Promise<{statusCode: 200, data: {Object}} || {statusCode: 500, message: "Something went wrong"}>}
+     */
     async getProfits(request, response) {
         try {
             const allProfits = await Profit.find();
