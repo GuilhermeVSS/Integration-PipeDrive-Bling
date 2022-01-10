@@ -5,7 +5,7 @@ const { Deal } = require('../models/dealModel');
 const { Profit } = require('../models/profitModel');
 
 class dealController {
-    
+
     /**
      * Method to sync Deals Won into Bling Order
      *
@@ -27,15 +27,17 @@ class dealController {
 
             const dealsWon = await pipeDriveLogic.getDealsWon();
 
-            for (const deal of dealsWon) {
-                const dealFound = await Deal.findById({ _id: deal.id });
-                if (dealFound) continue;
-                const newDeal = new Deal({ _id: deal.id });
-                await newDeal.save();
-                const { newOrder, totalValue } = helper.createOrderObject(deal);
-                profitFound.value += parseFloat(totalValue);
-                await blingLogic.postOrder(newOrder);
-            }
+            await Promise.all(
+                dealsWon.map(async (deal) => {
+                    const dealFound = await Deal.findById({ _id: deal.id });
+                    if (dealFound) return;
+                    const newDeal = new Deal({ _id: deal.id });
+                    await newDeal.save();
+                    const { newOrder, totalValue } = helper.createOrderObject(deal);
+                    profitFound.value += parseFloat(totalValue);
+                    await blingLogic.postOrder(newOrder);
+                }),
+            );
 
             await Profit.findByIdAndUpdate(profitFound["_id"], { value: profitFound.value });
 
