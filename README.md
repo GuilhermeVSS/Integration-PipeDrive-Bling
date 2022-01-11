@@ -42,7 +42,7 @@ Para a execução foram criados alguns scripts dentro da aplicação
 A aplicação contem quatro rotas, todas do tipo GET:
 - ```/``` : rota principal, retornado apenas alguns dados básico sobre a aplicação e autor
 - ```/api/documentation```: rota onde está disponível a documentação da aplicação gerada automáticamente pelo swagger.
-- ```/api/sync-deal```: rota responsável por sincronizar os Won Deals do PipeDrive para o Bling, além de criar ou atualizar o registro do total movimento no dia onde foi executado a sincronização
+- ```/api/sync-deals```: rota responsável por sincronizar os Won Deals do PipeDrive para o Bling, além de criar ou atualizar o registro do total movimento no dia onde foi executado a sincronização
 - ```/api/profits``` : retorna todos os dias em que foi executado uma sincronização
 
 ## Referências
