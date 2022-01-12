@@ -1,4 +1,4 @@
-const bling = require('../Services/BlingService');
+const bling = require('../services/blingService');
 const qs = require('qs');
 const js2xmlparser = require('js2xmlparser');
 
