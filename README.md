@@ -36,8 +36,8 @@ para verificar como inserir um novo Deal consulte [PipeDrive Deals](https://pipe
 
 ## Executando
 Para a execução foram criados alguns scripts dentro da aplicação
-- dev: Execute  o comando ```yarn dev``` ou ```npx dev``` para executa a aplicação com o nodemon para desenvolvimento, ele vai recarregar a aplicação sempre que uma nova mudança for salva
-- swagger-autogen: Execute o comando ```yarn swagger-autogen``` ou ```npx swagger-autogen``` para executar aplicação direto pelo swagger. Ele vai gerar a documentação automática, e executar o arquivo responsável pelo core da aplicação, nesse casso o ```src/server.js```
+- dev: Execute  o comando ```yarn dev``` ou ```npm run dev``` para executa a aplicação com o nodemon para desenvolvimento, ele vai recarregar a aplicação sempre que uma nova mudança for salva
+- swagger-autogen: Execute o comando ```yarn swagger-autogen``` ou ```npm run swagger-autogen``` para executar aplicação direto pelo swagger. Ele vai gerar a documentação automática, e executar o arquivo responsável pelo core da aplicação, nesse casso o ```src/server.js```
 
 A aplicação contem quatro rotas, todas do tipo GET:
 - ```/``` : rota principal, retornado apenas alguns dados básico sobre a aplicação e autor
