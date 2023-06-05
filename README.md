@@ -1,4 +1,4 @@
-# toLinkApi (PipeDrive + Bling)
+# Integration PipeDrive<>Bling
 
 ## Sobre
 Esta api é uma integração entre o PipeDrive e o Bling, com o objetivo de captura todos os Deals com Status Won e transformar em Orders dentro do Bling, além de listar o valor total sincronizado por dia
